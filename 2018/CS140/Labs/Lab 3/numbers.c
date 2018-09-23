@@ -15,6 +15,17 @@ Brief Description:
 #include <math.h>               /* sin(), cos(), tan(), atan()*/
 #include <stdio.h>              /* printf(), scanf()          */
 
+/**************************************************************************
+   Function: main
+ 
+Description: Takes in three input from the user and prints the corresponding
+             sin, cos, tan, and atan of the input.
+			 
+     Inputs: void
+	 
+    Outputs: Exit Status of the program (integer).
+**************************************************************************/
+
 int main (void)
 {
   float input_1;                /* User input one  */
@@ -45,7 +56,7 @@ int main (void)
    */
   printf("%.5f %8.3f %8.3f %8.3f %8.3f\n",
          input_1,(float)sin(input_1), (float)cos(input_1),
-         (float)tan(input_1), (float)atan(input_1));
+         (float) tan(input_1), (float) atan(input_1));
   
   /* Do the same for the second input.*/
   printf("%.5f %8.3f %8.3f %8.3f %8.3f\n",
