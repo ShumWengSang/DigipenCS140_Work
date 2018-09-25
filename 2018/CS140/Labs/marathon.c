@@ -25,7 +25,7 @@ int main(void)
   int miles = 26;    /* Miles in a marathon                 */
   int yards = 385;   /* Yards in a marathon                 */
   double kilometers; /* Calculated kilometers in a marathon */
-  ;
+  
     /* Convert miles and yards into kilometers */
   kilometers = (miles + (double)yards / YARDS_PER_MILE) * KILOS_PER_MILE;
 
