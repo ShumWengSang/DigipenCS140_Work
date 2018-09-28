@@ -1,0 +1,88 @@
+/***************************************************************************
+filename    fibonacci.c
+author      Roland Shum
+DP email    roland.shum@digipen.edu
+course      CS120
+section     C
+lab week    4
+due date    03/10/2018
+
+Brief Description:
+  Print a table of N amount of fibonacci number and their fibonacci quotient,
+  where N is a user input between 2 and 46. Entering 1 exits the program.
+
+***************************************************************************/
+#include <stdio.h>        /* printf*/
+
+#define SUCCESS        0
+#define USER_EXIT_NUM  1
+#define TRUE           1
+#define FIRST_FIB_NUM  0
+#define SECOND_FIB_NUM 1
+#define MIN_INPUT_NUM  2
+#define MAX_INPUT_NUM  46
+
+/**************************************************************************
+   Function: main
+ 
+Description: Prints a table of N amount of fibonacci number and their
+             fibonacci quotient, where N is a user input between 2 and 45.
+             Entering 1 exits the program
+
+     Inputs: void
+
+    Outputs: Exit Status of the program (integer).
+**************************************************************************/
+int main(void)
+{
+  int i;                        /* Loop iterator                                               */
+  int user_input;               /* User input                                                  */
+  int fib_trail_num;            /* Holds Fn-2, where n is our current iteration                */
+  int fib_last_num;             /* Holds Fn-1, where n is our current iteration                */
+  int current_fib_num;          /* Holds Fn, where n is our current iteration                  */
+  double fib_quo;               /* The calculated value of fib_quo, for the sake of clear eyes */
+
+  do                            /* Program keeps running until player enters 1 to exit.        */
+  {
+    printf("Enter the Fibonacci number to calculate.\n");      /*Print prompt for user input   */
+    printf("The number must be an integer between 2 and 46."); /*Print prompt for user input   */
+    printf(" (Enter 1 to quit): ");                            /*Print prompt for user input   */
+  
+    scanf("%i", &user_input);                                  /*User inputs into user_input   */
+    
+    /* If user input is 1, break the loop and exit the program. This is the only way to end.   */
+    if(user_input == USER_EXIT_NUM)
+    {
+      return SUCCESS;                                           /* We exit the program*/
+    }
+    /* If user input is not within our range, we restarting the loop */
+  }while(MIN_INPUT_NUM > user_input || user_input > MAX_INPUT_NUM);
+  
+  /* User input is within our range. Proceed to print table.*/
+  printf("\n");                                        /* Print a new line to split user input */
+  printf("           Fibonacci        Fibonacci\n");   /* Print Column Headings                */
+  printf(" N           number          quotient\n");   /* Print Column Headings                */
+  printf("-------------------------------------\n");   /* Print Table Line                     */
+  printf(" 0             0                  N/A\n");   /* Row 1 does not need to be calculated.*/
+  printf(" 1             1                  N/A\n");   /* Row 2 does not need to be calculated.*/
+    
+  /* We did not calculate row 1 and 2, thus these values are always 1 and 0 before loop starts */
+  fib_last_num = SECOND_FIB_NUM; 
+  fib_trail_num = FIRST_FIB_NUM;
+    
+  for(i = MIN_INPUT_NUM; i <= user_input; i++)    /* Start looping until it exceeds user input.*/
+  {
+    /*Calculate the current fib number by adding the last two.                                 */
+    current_fib_num = fib_last_num + fib_trail_num;
+    /*Calculate the fib quotient by dividing the current and the last fib numbers              */
+    fib_quo = (double)current_fib_num / (double)fib_last_num;
+    /*Print formatted version of the current fib number and the quotient.                      */
+    printf("%2i%14i%21.16f\n", i , current_fib_num, fib_quo);
+ 
+    /*Here we set the trailing fib number and the last fib number to their respective values   */
+    fib_trail_num = fib_last_num;
+    fib_last_num = current_fib_num;
+  }
+  
+  return SUCCESS; /*RETURN SUCCESS*/
+}
