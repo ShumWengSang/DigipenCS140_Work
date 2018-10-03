@@ -2,6 +2,7 @@
 #include <stdio.h>
 #define RADIUS 2.0
 #define TWO 2.0
+#define NUMERATOR 1.0
 double circle_pi(int rectangles)
 {
   int i; /*loop variable*/
@@ -11,21 +12,21 @@ double circle_pi(int rectangles)
   
   totalArea = 0;
   halfwidth = (RADIUS / rectangles ) / TWO;
-  printf("halfwidth is %f\n", halfwidth);
-  for(i = 0; i < rectangles; i++)
+  
+  for(i = 1; i <= rectangles; i++)
   { 
-    double midpoint;
+    double length;
     double height;
-    /* Calculate the midpoint of the current rectangle by
+    /* 
+     * Calculate the midpoint of the current rectangle by
      * (width * previous iteration number) + halfwidth
      */
-    midpoint = (halfwidth * TWO) * (i - 1) + halfwidth;
-    
-    /* Calc height by distance formula. r is 1, so r^2 is also one. */
-    height = sqrt(midpoint * midpoint - RADIUS);
-    
+    length = (halfwidth * TWO) * (i - 1) + halfwidth;
+
+    /* Calc height by distance formula. */
+    height = sqrt((RADIUS * RADIUS) - (length * length));
     /* Find new area and add to total, using base * height */
-    totalArea =  totalArea + (midpoint * height);
+    totalArea =  totalArea + (halfwidth * TWO * height);
   }
   
   return totalArea;
@@ -33,6 +34,23 @@ double circle_pi(int rectangles)
 
 double leibniz_pi(int iterations)
 {
-  iterations += 1;
-  return 0;
+  double totalOutcome = 0;
+  int sign;
+  /* exits loop when iterations is 0. */
+  while(--iterations)
+  {
+    int denominator = iterations + 2;
+    if(iterations % 2 == 1)
+    {
+      /*take away*/
+      sign = -1;
+    }
+    else
+    {
+      /*add to*/
+      sign = 1;
+    }
+    totalOutcome = totalOutcome + (sign * (NUMERATOR / denominator));
+  }
+  return 4 * (1 + totalOutcome);
 }
