@@ -1,6 +1,6 @@
 #include <math.h> /*sqrt */
-
-#define RADIUS 1.0
+#include <stdio.h>
+#define RADIUS 2.0
 #define TWO 2.0
 double circle_pi(int rectangles)
 {
@@ -10,8 +10,8 @@ double circle_pi(int rectangles)
   double totalArea;
   
   totalArea = 0;
-  halfwidth = (rectangles / RADIUS) / TWO;
-  
+  halfwidth = (RADIUS / rectangles ) / TWO;
+  printf("halfwidth is %f\n", halfwidth);
   for(i = 0; i < rectangles; i++)
   { 
     double midpoint;
@@ -25,7 +25,7 @@ double circle_pi(int rectangles)
     height = sqrt(midpoint * midpoint - RADIUS);
     
     /* Find new area and add to total, using base * height */
-    totalArea += midpoint * height;
+    totalArea =  totalArea + (midpoint * height);
   }
   
   return totalArea;
