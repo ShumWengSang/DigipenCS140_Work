@@ -1,4 +1,4 @@
-#include <math.h> /*sqrt */
+#include <math.h> /* sqrt */
 
 #define RADIUS 2.0
 #define TWO_FACTOR 2.0
@@ -43,19 +43,23 @@ double leibniz_pi(int iterations)
 {
   double totalOutcome = 0;  /* The result of adding all the numbers. */
   
+  /* 
+   * Determine the sign of the last number based on whether
+   * iteration is even or odd. Even is negative, odd is positive.
+   */
+  int sign = (iterations % 2) == 0 ? NEGATIVE : POSITIVE;
+  
   /* Exits loop when iteration is 0. */
   while(iterations)
-  {
-    int sign; /* The sign of the number. */
-    
+  {    
     /* Denominator is determined by pattern, (n * 2) - 1 where n is the current term number. */
     int denominator = (iterations * 2) - 1; 
     
-    /* Determine the sign of the number based on whether iteration is even or odd. */
-    sign = (iterations % 2) == 0 ? NEGATIVE : POSITIVE;
-    
     /*Calculate the inverse of denominator. Attach the sign to it. Add to totalOutcome. */
-    totalOutcome += (sign * (NUMERATOR / denominator));
+    totalOutcome += (sign * (NUMERATOR / denominator)); 
+    
+    /* Flip the sign when going to next iteration. */
+    sign *= -1;
     
     /*Move to next number. */
     iterations--;

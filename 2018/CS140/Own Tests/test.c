@@ -2,5 +2,12 @@
 
 int main (void)
 {
-  printf("Number is :%i.\n", 2 % 1);
+  int x = 5000;
+  float i , k;
+  int j;
+  printf("Number is :%-8.1i\n", x);
+  
+  scanf("%f%i%f", &i, &j, &k);
+  
+  printf("Numbers inputted are %f %i %f", i,j,k);
 }
