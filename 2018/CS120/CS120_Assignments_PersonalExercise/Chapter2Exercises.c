@@ -64,9 +64,9 @@ int main(void)
 #ifdef PROGRAMMING_PROJECT_TWO
 int main(void)
 {
-  const int PI = 3.1415;
-  int radius = 10 * 10 * 10;
-  printf("Volume: %f", 4.0f/3.0f * PI * radius);
+  int i = 2; 
+  int j = 3;
+  printf("%d , %d:", (i+10) % j);
 }
 
 #endif
