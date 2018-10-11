@@ -7,7 +7,6 @@ int main(void)
   int userinput;
   int i, j;
   double probablity;
-  int five_of_a_kind = 0;
 
     /* Seed the pseudo-random number generator.                   */
     /* DON'T CHANGE THIS WHEN UPLOADING TO THE SUBMISSION SERVER! */
@@ -16,6 +15,7 @@ int main(void)
 
   do
   {
+    int five_of_a_kind = 0;
     /* You may also define variables here, if you need to. */
     printf("How many times do you want to roll the dice? (0=quit) ");
     scanf("%i", &userinput);
@@ -31,19 +31,21 @@ int main(void)
       {
         dice[j] = RandomInt(1, 6);
       }
-      for(j = 0, five_of_a_kind++; j < AMOUNT_OF_DIES - 1; j++)
+	    
+      five_of_a_kind++;
+      for(j = AMOUNT_OF_DIES - 1; j >= 0; j--)
       {
-        if(dice[j] != dice[j+1])
+        if(dice[j] != dice[0])
         {
           five_of_a_kind--;
           break;
         }
       }
     }
-    
+
     probablity = (double)five_of_a_kind / (double)userinput;
     printf("After %i rolls, you had 5 of a kind %i times.\n", userinput, five_of_a_kind);
-    printf("This is a percentage of %f.\n",probablity);
+    printf("This is a percentage of %f.\n\n",probablity);
 
 
   } while (1);
