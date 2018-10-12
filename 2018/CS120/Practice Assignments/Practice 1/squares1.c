@@ -3,9 +3,9 @@ filename    squares1.c
 author      Roland Shum
 DP email    roland.shum@digipen.edu
 course      CS120
-section     C
+section     A
 lab week    2
-due date    07/12/2018
+due date    12/07/2018
 
 Brief Description:
   Practice Assigment for loops where we loop 
@@ -21,19 +21,19 @@ Description: Prints the values of 1 to 20 and their
 
      Inputs: void
 
-    Outputs: Exit Status of the program (integer).
+    Outputs: Exit Status of the program (integer). Always 0.
 **************************************************************************/
 int main(void)
 {
-  int i;                                  /*Loop iterator*/
-  printf("   Value     Value*Value\n");   /*Print Table*/
-  printf("------------------------\n");   /*Print Table Next Line*/
+  int i;                                  /*Loop iterator         */
+  printf("   Value     Value*Value\n");   /*Print Table           */
+  printf("------------------------\n");   /*Print Table Next Line */
   
-  /*Iterate 20 times and print the number and its squared form*/
+  /*Iterate 20 times and print the number and its squared form. */
   for(i = 1; i <= 20; i++)
   {
     printf("%6i:%12i\n", i , i * i);
   }
   
-  return 0;  /*RETURN SUCCESS*/
+  return 0;  /*RETURN SUCCESS */
 }
