@@ -1,0 +1,2 @@
+Enter an integer (1 to 2,147,483,647 without commas): The number of digits in 1 is 1
+Enter an integer (1 to 2,147,483,647 without commas): The number of digits in 42 is 2

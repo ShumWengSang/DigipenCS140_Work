@@ -4,28 +4,29 @@ author      Roland Shum
 DP email    roland.shum@digipen.edu
 course      CS120
 section     A
-week        5
+week        3
 due date    12/07/2018
 
 Brief Description:
   Practice Assignment 3. 
-  The program asks the user for two numbers. It will then find the difference
-  between the numbers. It will then find all multiples of the itself between 0
-  and the second user number. It will print those numbers, and their respective
-  squared and cubed form.
+  The program asks the user for two positive numbers, named range and stride.
+  It will then print multiples of its stride, along with their respective 
+  squared and cubed numbers, until the number is greater then range.
   
 ******************************************************************************/
 #include <stdio.h>  /* printf */
+
+#define MAX_RANGE 1290
 /**************************************************************************
    Function: main
  
 Description: Requests the user to enter two numbers. Find all the respective
              squared and cubed numbers between the two numbers that is a 
-             multiple of the difference of both numbers and display it.
+             multiple of stride, until range is hit.
 
      Inputs: void
 
-    Outputs: Exit Status of the program (integer).
+    Outputs: Exit Status of the program (integer). Always 0.
 **************************************************************************/
 int main(void)
 {
@@ -37,26 +38,34 @@ int main(void)
   do
   { 
     /* Print the prompt. */
-    printf("Enter two integers greater then 0: ");
+    printf("Enter two integers greater than 0: ");
     
     /* Take in user input. */
     scanf("%i %i", &range, &stride);
     
-    /* If the range or stride is less then 0, we keep asking. */
-    if(range <= 0 || stride <= 0)
-      continue;
-  
-    /* We quit the loop when the user gives a valid number. */
-  }while(range >= 1290 || range <= 0);
-
+    /* If the range is within range. */
+    if(range > 0 && range < MAX_RANGE)
+    {
+      /* If the stride is within range. */
+      if(stride > 0 && stride < MAX_RANGE)
+      {
+        /* We continue to the next part. */
+        break;
+      }
+    }
+    /* We keep asking until break statement is hit. */
+  }while(1);
+  printf("\n");
   /* Print the table top. */
   printf(" Value     Value^2    Value^3\n");
   printf("-----------------------------\n");
   
-  /* Loop  */
+  /* Increment i by stride, until range is smaller. */
   for(i = stride; i <= range; i += stride)
   {
-    printf("%5i%12i%12i\n", stride, stride * stride, stride * stride * stride);
+    /* Print the respective number, number^2, and number^3. */
+    printf("%5i%12i%12i\n", i, i * i, i * i * i);
   }
+  /* Return success. */
   return 0;
 }

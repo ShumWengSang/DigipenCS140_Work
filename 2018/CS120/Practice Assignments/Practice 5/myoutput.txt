@@ -1,0 +1,4 @@
+Enter an integer (1 to 2,147,483,647 without commas):The sum of the digits in 1 is 1.
+The product of the digits in 1 is 1.
+Enter an integer (1 to 2,147,483,647 without commas):The sum of the digits in 42 is 6.
+The product of the digits in 42 is 8.

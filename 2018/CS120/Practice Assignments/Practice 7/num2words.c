@@ -1,34 +1,57 @@
-#include <stdio.h>
+/******************************************************************************
+filename    num2words.c
+author      Roland Shum
+DP email    roland.shum@digipen.edu
+course      CS120
+section     A
+week        7
+due date    12/07/2018
 
+Brief Description:
+  Practice Assignment 7. Definition for number_to_words function. This function
+  takes in a two digit number and changes it into its word form.
+  
+******************************************************************************/
+#include <stdio.h> /* printf */
+
+#define DIGITS 2
+/**************************************************************************
+   Function: number_to_words
+ 
+Description: Takes a two-digit number and prints out its respective
+             English word.
+
+     Inputs: number  -- The number to parse.
+
+    Outputs: void
+**************************************************************************/
 void number_to_words(int number)
 {
-  /* We assume all numbers passed are two digits. */
-  int digits[2];
   
-  /* Get the 10th and 1st place digit numbers. */
-  digits[1] = number % 10;
-  digits /= 10;
-  digits[0] = number % 10;
-  
-  switch(digits[1])
+  int digit; /* This will hold the last digit. */
+  int i;     /* Loop variable. */
+   
+  /* The ones place, holds all the exceptions. */
+  const char * ones[20] = { "", "one", "two", "three", "four", "five",
+                               "six", "seven", "eight", "nine", "ten", "eleven",
+                               "twelve", "thirteen", "fourteen", "fifteen", 
+                               "sixteen", "seventeen", "eighteen", "nineteen"
+                          };
+                             
+  /* The tens place.*/
+  const char * tens[9] = { "", "twenty", "thirty", "fourty", "fifty", "sixty",
+                              "seventy", "eighty", "ninety"
+                         };
+ 
+
+  for(i = 0; i < DIGITS; i++)
   {
-    case 2:
-    break;
-    case 3:
-    break;
-    case 4:
-    break;
-    case 5:
-    break;
-    case 6:
-    break;
-    case 7:
-    break:
-    case 8:
-    break;
-    case 9:
-    break;
-    default:
-    break;
+      digit = number % 10;
+      if(digit < 20)
+      {
+        
+      }
   }
+  
+  
 }
