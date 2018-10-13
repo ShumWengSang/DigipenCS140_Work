@@ -2,7 +2,7 @@
 
 /* Prototypes implemented in primes1.c */
 int is_prime(int n);
-/*void conjecture(int low, int high);*/
+void conjecture(int low, int high);
 
 void check_primes(int count)
 {
@@ -23,7 +23,7 @@ void check_primes(int count)
 
 int main(void)
 {
-  check_primes(100);
-  /*conjecture(2, 200);*/
+  check_primes(1000);
+  conjecture(2, 2000);
   return 0;
 }

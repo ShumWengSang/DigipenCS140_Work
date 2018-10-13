@@ -32,18 +32,18 @@ int is_prime(int number)
 {
   int i; /* Loop variable. */
   
-  /* 1 and 0 are not prime. We don't care about negative ints here. */
-  if(number < 2)
-  {
-    /* Not prime, return false. */
-    return FALSE;
-  }
-  
   /* If number is 2, return true. We know 2 is prime. */
   if(number == 2)
   {
     /* Prime number. */
     return TRUE;
+  }
+  
+  /* 1 and 0 are not primes. Even numbers are not primes. */
+  if(number < 2 || number % 2 == 0)
+  {
+    /* Not prime, return false. */
+    return FALSE;
   }
   
   /* Loop through all odd numbers from 3 to half the number. */
@@ -54,14 +54,63 @@ int is_prime(int number)
      * can divide it and give a remainder of 0 means its divisible. Thus
      * not a prime number.
      */
-    if(i % number != 0)
+    if(number % i == 0)
     {
-      /* Just return false.*/
+      /* A number is divisible by it. */
       return FALSE;
     }
   }
   /* Passed the test. Thus it should be a prime. */
   return TRUE;
+}
+
+/**************************************************************************
+   Function: find_conjecture
+ 
+Description: Helper function that helps find two primes that add up to the 
+             given number. This number should be even. 
+
+     Inputs: number -- The even number to check.
+
+    Outputs: Void.
+**************************************************************************/
+void find_conjecture(int number)
+{
+  int i, j; /* Loop variable. */
+  
+  /* We loop through all possible prime numbers from bottom up, up to half. */
+  for(i = 0; i <= number / 2; i ++)
+  {
+    /* We only want to evaluate when i is prime. */
+    if(!is_prime(i))
+    {
+      /* i is not prime, so continue to find a prime. */
+      continue;
+    }
+    /* We do the same loop, except from the other side of possibilities. */
+    for(j = number; j >= number / 2; j--)
+    {
+      /* Again, we only want to evaluate when j is prime.*/
+      if(!is_prime(j))
+      {
+        /* j is not prime, so continue to find a prime. */
+        continue;
+      }
+
+      /* 
+       * i and j are both primes now.
+       * Check if they add up to even number.
+       */
+      if((i + j) == number)
+      {
+        /* They add up. Print out the prompt. */
+        printf("%3i = %3i + %3i\n", number, i, j);
+        /* Return to get out of loop. */
+        return;
+          
+      }
+    }
+  }
 }
 
 /**************************************************************************
@@ -78,7 +127,18 @@ Description: Gets a range of numbers, and determines if the even numbers
              1 is TRUE, 0 is FALSE
 **************************************************************************/
 void conjecture(int low, int high)
-{
-  low++;
-  high++;
+{  
+  /* If low is not an even number. */
+  if(low % 2 != 0)
+  {
+    /* We set it to even for our loop to work. */
+    low += 1;
+  }
+
+  /* Loop through all multiples of 2, which is even number. */
+  for( ; low <= high; low += 2)
+  {
+    /* Find two prime numbers that add up to this even number. */
+    find_conjecture(low);
+  }
 }
