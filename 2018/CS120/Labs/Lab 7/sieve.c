@@ -1,4 +1,4 @@
-/***************************************************************************
+/******************************************************************************
 filename    sieve.c
 author      Roland Shum
 DP email    roland.shum@digipen.edu
@@ -8,40 +8,43 @@ Lab         7
 due date    10/25/2018
 
 Brief Description:
-  Lab 3. Find primen numbers using The Sieve of Erotoshenes. Find twin 
+  Lab 7. Find primen numbers using The Sieve of Erotoshenes. Find twin 
   primes, and Brun's Constant.
-***************************************************************************/
+******************************************************************************/
 #include <stdio.h> /* printf      */
 #include <math.h>  /* sqrt        */
 #include "sieve.h" /* TRUE, FALSE */
 
-/**************************************************************************
+/******************************************************************************
    Function: sieve
  
 Description: Finds all prime numbers between 0 and the length of the array.
 
-     Inputs: array  -- The array to hold all the numbers.
-             length -- The length of the array passed in.
+     Inputs: array  -- The array to determine if indexes are primes.
+             size   -- The maximum number, from 0, to find all prime numbers.
 
-    Outputs: If the given phrase is a palindrome. 1 for TRUE. 0 for FALSE.
-**************************************************************************/
+    Outputs: None
+******************************************************************************/
 void sieve(int array[], int size)
 {
-  int i, j;
-  int max_iterations;
+  int i, j;           /* Loop iterators.                                     */
+  int max_iterations; /* Holds the sqrt of size aka the number of iterations */
   
-  /* Set all numbers to true. */
+  /* Set all numbers in given array to true. */
   for(i = 0; i < size; i++)
   {
     array[i] = TRUE;
   }
+  
   /* 1 and 0 are not primes. */
   array[0] = FALSE;
   array[1] = FALSE;
   
+  /* Find the max amount of iterations by square rooting the size. */
   max_iterations = sqrt(size);
   
-  for(i = 2; i < max_iterations; i++)
+  /* Loop through 2 to the square root of size. */
+  for(i = 2; i <= max_iterations; i++)
   {
     /* If the array is already crossed out, we ignore. */
     if(array[i] == FALSE)
@@ -59,47 +62,75 @@ void sieve(int array[], int size)
   }
 }
 
+/******************************************************************************
+   Function: twin_primes
+ 
+Description: Finds the number of twin primes in the given array. A twin prime
+             are two prime numbers with a difference of two.
+
+     Inputs: primes  -- The array that holds numbers, with prime numbers
+                        (as indexes) being TRUE (1).
+             size    -- The size of the array passed in.
+
+    Outputs: Outputs the amount of twin primes found (int).
+******************************************************************************/
 int twin_primes(const int primes[], int size)
 {
-  int i;
-  int prime_num = 0;
-  int last_prime = 2;
+  int i;              /* Loop iterator.                                      */
+  int prime_num = 0;  /* The amount of prime numbers currently.              */
+  int last_prime = 2; /* Holds the last known prime. Two is the first prime. */
   
-  
-  for(i = 0; i < size; i++)
+  /* Loop through primes array starting from first prime, which is 2. */
+  for(i = 2; i < size; i++)
   { 
-
+    /* Is the number prime? */
     if(primes[i] == TRUE)
     {
+      /* Compare with the last prime numbers. Is the difference two? */
       if((i - last_prime) == 2)
       {
+        /* Print the prompt while preincrementing the number of twin_primes. */
         printf("twin prime #%4i: %4i and %4i\n", ++prime_num, last_prime, i);
-
       }
+      /* Set last_prime for use in next iteration. */
       last_prime = i;
     }
   }
-  
+  /* Return the number of twin primes found. */
   return prime_num;
 }
 
+/******************************************************************************
+   Function: brun_constant
+ 
+Description: Finds the sum of all the reciprocals of the sum of all twin primes
+             found in primes. This sum is also known as Brun's Constant.
+
+     Inputs: primes  -- The array that holds numbers, with prime numbers
+                        (as indexes) being TRUE (1).
+             size    -- The size of the array passed in.
+
+    Outputs: Outputs the brun constant calculated (double)
+******************************************************************************/
 double brun_constant(const int primes[], int size)
 {  
-  int i;
-  double output = 0;
-  int last_prime = 2;
+  int i;              /* Loop iterator.                    */
+  double output = 0;  /* The Brun's constant to output.    */
   
-  for(i = 0; i < size; i++)
+  /* Loop through the primes array from 2. */
+  for(i = 2; i < size; i++)
   {
+    /* Is the number prime? */
     if(primes[i] == TRUE)
     {
-      if((i - last_prime) == 2)
+      /* Is the supposed twin number a prime? */
+      if(primes[i + 2] == TRUE)
       {
-        output += (1.0 / i) + (1.0 / last_prime);
+        /* Add the sum of the reciprocals of the two primes to output. */
+        output += (1.0 / i) + (1.0 / (i + 2));
       }
-      last_prime = i;
     }
   }
-  
+  /* Return the calculated Brun's constant. */
   return output;
 }

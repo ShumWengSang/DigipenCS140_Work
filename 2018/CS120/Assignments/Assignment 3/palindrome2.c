@@ -8,8 +8,8 @@ Assignment  3
 due date    10/24/2018
 
 Brief Description:
-  Assigment 3. Definition of isPalindrome. We use the array to check whether
-  the array is a palindrom
+  Assigment 3. Definition of isPalindrome2. We use pointers to move through
+  memory to check if the given phrase is a palindrome.
 ***************************************************************************/
 
 /**************************************************************************
@@ -17,7 +17,8 @@ Brief Description:
  
 Description: Determines if the given char pointer is a palindrome by checking
              its element values. We do this by checking if the left and 
-             right end memory holds the same values.
+             right end memory holds the same values, and moving through 
+             contingious memory.
 
      Inputs: phrase -- The word to check if it is a palindrome
              length -- The length of the array passed in.
@@ -31,13 +32,14 @@ int is_palindrome2(const char *phrase, int length)
   /* Loop over half the phrase. We compare the two ends of the phrase. */
   for(i = 0; i < (length / 2); i++)
   { 
-    /* If left end and right end do not match. */
+    /* Dereference the left and right end, check if not match. */
     if(*(phrase + i) != *(phrase + (length - 1 - i)))
     {
+      /* Not match. Return 0. */
       return 0;
     }
   }
   
-  /* The left side matches the right side. Is palindrome. */
+  /* All the left side matches the right side. Is palindrome. */
   return 1;
 }

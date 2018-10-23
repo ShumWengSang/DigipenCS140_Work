@@ -8,8 +8,8 @@ Assignment  3
 due date    10/24/2018
 
 Brief Description:
-  Assigment 3. Definition of isPalindrome. We use the array to check whether
-  the array is a palindrom
+  Assigment 3. Definition of isPalindrome1. We use the array to check whether
+  the array is a palindrome.
 ***************************************************************************/
 
 /**************************************************************************
