@@ -13,7 +13,7 @@ Brief Description:
 ***************************************************************************/
 #include <stdio.h>  /* printf */
 
-#define TRUE  1 
+#define TRUE  1
 #define FALSE 0
 /**************************************************************************
    Function: is_leapyear
@@ -189,27 +189,24 @@ void print_calendar(int month, int year)
   /* Start printing out the days of the month in a formatted way. */
   for( i = 0; i < days_in_month[month - 1]; i++)
   {
-    printf("%2i", i + 1);
+    printf("%2i ", i + 1);
     
-    /* Add a new line for every 7 days. */
+    /* Add a new line for every 7 days, AKA end of week. */
     if((i + date_of_month_start) % 7 == 0)
     {
-      /* a space and a new line. */
-      printf(" \n");
-    }
-    else
-    {
-      /* This is not a new line. Add another space. */
-      printf(" ");
+      /* Add a new line. */
+      printf("\n");
     }
   }
   
-  /* If we didn't already draw one more end line to end it. */
+  /*
+   * Last day of month could be a Saturday, causing a new line to be drawn.
+   * We check if there was a new line drawn. If not, draw one. If yes, ignore. 
+   */
   if((--i + date_of_month_start) % 7 != 0)
   {
     /* One more new line to end it.*/
     printf("\n");
   }
-  
 }
 
