@@ -13,8 +13,8 @@ Brief Description:
 ***************************************************************************/
 #include <stdio.h>  /* printf */
 
-#define TRUE  1
-#define FALSE 0
+#define TRUE  1  /* True is 1  */
+#define FALSE 0  /* False is 0 */
 /**************************************************************************
    Function: is_leapyear
  
@@ -104,7 +104,7 @@ int day_of_the_week(int day, int month, int year)
    * subtract 1 from the total so far.
    */
   if((is_leapyear(year) && month == 0) ||
-  (is_leapyear(year) && month == 1))
+     (is_leapyear(year) && month == 1))
   {
     result -= 1;
   }
@@ -143,6 +143,7 @@ int day_of_the_week(int day, int month, int year)
   /* Saturday gives 7, we return a 7 for that.*/
   if(result == 0)
   {
+    /* Return a 7 for Saturday. */
     return 7;
   }
   
@@ -164,6 +165,7 @@ void print_calendar(int month, int year)
 {
   /* The days in each month. */
   int days_in_month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+  
   /* C-string representation of months. */
   char *months[] = {"January",   "February", "March",    "April", 
                     "May",       "June",     "July",     "August",
@@ -201,7 +203,8 @@ void print_calendar(int month, int year)
   
   /*
    * Last day of month could be a Saturday, causing a new line to be drawn.
-   * We check if there was a new line drawn. If not, draw one. If yes, ignore. 
+   * We check if the last month is a Saturday. If not, add a new line. 
+   * If it is, do not draw a new line. 
    */
   if((--i + date_of_month_start) % 7 != 0)
   {
