@@ -5,7 +5,7 @@ DP email    roland.shum@digipen.edu
 course      CS120
 section     A
 Lab         7
-due date    10/25/2018
+due date    10/24/2018
 
 Brief Description:
   Lab 7. Find primen numbers using The Sieve of Erotoshenes. Find twin 
@@ -19,8 +19,12 @@ Brief Description:
    Function: sieve
  
 Description: Finds all prime numbers between 0 and the length of the array.
+             This will modify the given array and set the value of array[i] to
+             1 (for TRUE) if *i* is a prime.
 
-     Inputs: array  -- The array to determine if indexes are primes.
+     Inputs: array  -- The array to modify if indexes are primes. This means 
+                       the function will check if array[i] checks if *i*
+                       is prime.
              size   -- The maximum number, from 0, to find all prime numbers.
 
     Outputs: None
@@ -65,11 +69,13 @@ void sieve(int array[], int size)
 /******************************************************************************
    Function: twin_primes
  
-Description: Finds the number of twin primes in the given array. A twin prime
-             are two prime numbers with a difference of two.
+Description: Finds and returns the number of twin primes in the given array. 
+             A twin prime are two prime numbers with a difference of two.
 
-     Inputs: primes  -- The array that holds numbers, with prime numbers
-                        (as indexes) being TRUE (1).
+     Inputs: primes  -- The array that represents numbers, with prime numbers
+                        (as indexes) being TRUE (1). Array[i] as true
+                        (1) means i is a prime. Array[i] as false (0) means it
+                        is not a prime.
              size    -- The size of the array passed in.
 
     Outputs: Outputs the amount of twin primes found (int).
@@ -106,8 +112,10 @@ int twin_primes(const int primes[], int size)
 Description: Finds the sum of all the reciprocals of the sum of all twin primes
              found in primes. This sum is also known as Brun's Constant.
 
-     Inputs: primes  -- The array that holds numbers, with prime numbers
-                        (as indexes) being TRUE (1).
+     Inputs: primes  -- The array that represents numbers, with prime numbers
+                        (as indexes) being TRUE (1). Array[i] as true
+                        (1) means i is a prime. Array[i] as false (0) means it
+                        is not a prime.
              size    -- The size of the array passed in.
 
     Outputs: Outputs the brun constant calculated (double)

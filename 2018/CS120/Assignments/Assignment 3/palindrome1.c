@@ -5,19 +5,18 @@ DP email    roland.shum@digipen.edu
 course      CS120
 section     A
 Assignment  3
-due date    10/24/2018
+due date    10/25/2018
 
 Brief Description:
-  Assigment 3. Definition of isPalindrome1. We use the array to check whether
-  the array is a palindrome.
+  Assigment 3. Definition of isPalindrome. We check if the given array is 
+  a palindrome.
 ***************************************************************************/
 
 /**************************************************************************
    Function: is_palindrome1
  
 Description: Determines if the given char array is a palindrome by checking
-             its array values. We do this by checking if the left and 
-             right end values are the same.
+             its array values. 
 
      Inputs: phrase -- The word to check if it is a palindrome
              length -- The length of the array passed in.
