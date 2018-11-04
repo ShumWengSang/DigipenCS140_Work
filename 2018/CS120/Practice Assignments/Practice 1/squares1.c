@@ -1,15 +1,15 @@
 /***************************************************************************
-filename    squares1.c
-author      Roland Shum
-DP email    roland.shum@digipen.edu
-course      CS120
-section     A
-lab week    2
-due date    12/07/2018
+filename              squares1.c
+author                Roland Shum
+DP email              roland.shum@digipen.edu
+course                CS120
+section               A
+Practice Assignment   1
+due date              12/07/2018
 
 Brief Description:
-  Practice Assigment for loops where we loop 
-  and print out the values of 1 to 20
+  Practice Assigment 1. Loops where we loop and print out the values of 1 to 20
+  and their squared values.
 
 ***************************************************************************/
 #include <stdio.h>    /*printf*/
@@ -17,7 +17,7 @@ Brief Description:
    Function: main
  
 Description: Prints the values of 1 to 20 and their
-             respective squared values
+             respective squared values.
 
      Inputs: void
 

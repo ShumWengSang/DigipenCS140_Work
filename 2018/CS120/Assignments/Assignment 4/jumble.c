@@ -8,7 +8,7 @@ Assignment  4
 due date    11/01/2018
 
 Brief Description:
-  Assigment 4. Definition of Jumble and mystrlen. Jumble is used to encrypt/decode the
+  Assigment 4. Definition of Jumble. Jumble is used to encrypt/decode the
   c-style string passed in. Mystrlen gives the string length.
 ***************************************************************************/
 #include "jumble.h" /* CODE_METHOD, mystrlen, jumble */
@@ -34,23 +34,23 @@ int mystrlen(const unsigned char *string)
 /**************************************************************************
    Function: jumble
  
-Description: Modifies the given string to an encrypted form, based on the 
+Description: Modifies the given array to an encrypted form, based on the 
              password and how many passes done. This method can be used
-             to encode or decode an encrypted c-style string. Providing the
-             same key and pass to decode an encoded value will give the
-             original string.
+             to encode or decode an encrypted c-style string.
 
      Inputs: string      - C-style string that contains the phrase that needs
                            to be encoded. Will be modified by function.
              password    - C-style string key to change the phrase by. 
+                           Providing the same key used for encrytion will give 
+                           the original phrase.
              CODE_METHOD - Choose to ENCODE or DECODE the given string.
              passes      - The number of times to run the encryption by. 
+                           Running the same number of passes used for encoding 
+                           is required for decoding.
     Outputs: None
 **************************************************************************/
-void jumble(unsigned char *string,
- const unsigned char *password,
- enum CODE_METHOD method,
- int passes)
+void jumble(unsigned char *string, const unsigned char *password, 
+            enum CODE_METHOD method, int passes)
  {
    int i, k;             /* Loop variable.                                   */
    int code_method_sign; /* Determines whether we decode or encode.          */
@@ -74,7 +74,7 @@ void jumble(unsigned char *string,
    /* We want to run as many passes there are. */
    for(i = 0; i < passes; i++)
    {
-     int key_index = 0;    /* Current index of the key.   */
+     int key_index = 0;    /* Current index of the key. */
      int passlength;       /* The length of the password. */
      
      /* Get the length of password, so later can set to 0 when maxed. */
