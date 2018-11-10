@@ -22,7 +22,7 @@ void test1(void)
   printf("Output string: |%s|\n", rev1);
   }
 
-#if 0
+
   {
   char words1[] = "This is a";
   char rev1[sizeof(words1) + 1];
@@ -55,7 +55,7 @@ void test1(void)
   reverse_words1(words1, rev1);
   printf("Output string: |%s|\n", rev1);
   }
-#endif
+
 }
 
 void test2(void)
@@ -74,7 +74,7 @@ void test2(void)
   printf("Output string: |%s|\n", words);
   }
 
-#if 0
+
   {
   char words[] = "This is a";
   printf(" Input string: |%s|\n", words);
@@ -103,19 +103,20 @@ void test2(void)
   reverse_words2(words);
   printf("Output string: |%s|\n", words);
   }
-#endif
+
 }
 
 int main(void)
 {
+
   printf("\n============== Test 1 ================\n");
   test1();  
 
-#if 0
+
   printf("\n============== Test 2 ================\n");
   test2();  
 
-#endif
+
 
   return 0;
 }

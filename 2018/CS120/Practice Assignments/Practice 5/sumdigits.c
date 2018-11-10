@@ -10,7 +10,6 @@ due date              12/07/2018
 Brief Description:
   Practice Assignment 5. The program prints out the sum and product 
   of the digits in a user-given integer.          
-  
 ******************************************************************************/
 #include <stdio.h> /* printf */
 /**************************************************************************
