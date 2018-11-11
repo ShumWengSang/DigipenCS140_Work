@@ -10,7 +10,7 @@ due date              12/07/2018
 Brief Description:
   Practice Assigment 14. Provides two functions that convert Windows-style text 
   file to a Unix-style text file and vice versa.
-******************************************************************************/
+*******************************************************************************/
 #include <stdio.h>     /* fgetc, fputc, EOF */
 #include "fileconv.h"  /* enum FILE_ERR     */
 
@@ -78,7 +78,7 @@ enum FILE_ERR win2unix(const char *finput, const char *foutput)
     }
     else /* We normally don't do anything special. */
     {
-      /* Proceed as normal, put them in output file. */
+      /* Proceed as normal, copy and paste char in output file. */
       fputc(temp, output);
     }
   }
@@ -109,7 +109,7 @@ enum FILE_ERR unix2win(const char *finput, const char *foutput)
 {
   /* Read in the input and output file. */
   FILE *input = fopen(finput, "rb");
-  FILE *output = fopen(foutput, "rb+");
+  FILE *output = fopen(foutput, "wb");
   
   /* Temporary variable to hold currently read char. */
   char temp;
@@ -143,7 +143,7 @@ enum FILE_ERR unix2win(const char *finput, const char *foutput)
     }
     else /* We normally don't do anything special. */
     {
-      /* Proceed as normal, put them in output file. */
+      /* Proceed as normal, copy and paste char in output file. */
       fputc(temp, output);
     }
   }
