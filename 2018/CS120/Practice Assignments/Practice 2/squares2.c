@@ -1,11 +1,11 @@
 /***************************************************************************
-filename    squares2.c
-author      Roland Shum
-DP email    roland.shum@digipen.edu
-course      CS120
-section     A
-lab week    3
-due date    12/07/2018
+filename              squares2.c
+author                Roland Shum
+DP email              roland.shum@digipen.edu
+course                CS120
+section               A
+Practice Assignment   2
+due date              12/07/2018
 
 Brief Description:
   Practice Assigment 2. Finds all respective squared and cubed numbers
@@ -18,7 +18,7 @@ Brief Description:
  
 Description: Requests the user to enter two numbers. Find all the respective
              squared and cubed numbers between the two numbers that is a 
-             multiple of stride and display it.
+             multiple of stride and prints it to console.
 
      Inputs: void
 

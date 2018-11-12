@@ -1,11 +1,11 @@
 /******************************************************************************
-filename    dice1.c
-author      Roland Shum
-DP email    roland.shum@digipen.edu
-course      CS120
-section     A
-week        6
-due date    12/07/2018
+filename              dice1.c
+author                Roland Shum
+DP email              roland.shum@digipen.edu
+course                CS120
+section               A
+Practice Assignment   6
+due date              12/07/2018
 
 Brief Description:
   Practice Assignment 6. The program prompts the user for how many times it
@@ -17,7 +17,7 @@ Brief Description:
 #include <stdio.h> /* printf, scanf       */
 #include "PRNG.h"  /* ut_srand, RandomInt */
 
-#define AMOUNT_OF_DIES 5
+#define AMOUNT_OF_DIES 5  /* The number of dices to roll. */
 /**************************************************************************
    Function: main
  
@@ -34,12 +34,14 @@ Description: The program prompts the user for how many times it
 int main(void)
 {
   int user_input; /* User Input. Amount of rolls to do. */
-  int i, j;      /* Loop variables.                     */
+  int i, j;       /* Loop variables.                    */
 
 
-  /* Seed the pseudo-random number generator.                   */
-  /* DON'T CHANGE THIS WHEN UPLOADING TO THE SUBMISSION SERVER! */
-  /* If you change this, your output won't match when you diff. */
+  /*
+   * Seed the pseudo-random number generator.                   
+   * DON'T CHANGE THIS WHEN UPLOADING TO THE SUBMISSION SERVER! 
+   * If you change this, your output won't match when you diff. 
+   */
   ut_srand(0, 0);
 
   do

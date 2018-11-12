@@ -1,11 +1,11 @@
 /******************************************************************************
-filename    bsort.c
-author      Roland Shum
-DP email    roland.shum@digipen.edu
-course      CS120
-section     A
-week        9
-due date    12/07/2018
+filename              dice1.c
+author                Roland Shum
+DP email              roland.shum@digipen.edu
+course                CS120
+section               A
+Practice Assignment   9
+due date              12/07/2018
 
 Brief Description:
   Practice Assigment 9. Holds the definition of bsort, where given an integer
@@ -19,10 +19,10 @@ Brief Description:
 Description: Takes in an array and its size and sorts it from smallest to
              greatest using bubble sort.
 
-     Inputs: array -- The array to sort.
-             size  -- The size of the array to sort.
+     Inputs: array - The array to sort. 
+             size  - The size of the array to sort.
 
-    Outputs: Void
+    Outputs: None. Modifies array to be sorted.
 **************************************************************************/
 void bsort(int array[], int size)
 {

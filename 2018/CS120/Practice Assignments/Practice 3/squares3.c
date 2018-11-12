@@ -1,11 +1,11 @@
 /******************************************************************************
-filename    squares3.c
-author      Roland Shum
-DP email    roland.shum@digipen.edu
-course      CS120
-section     A
-week        3
-due date    12/07/2018
+filename              squares3.c
+author                Roland Shum
+DP email              roland.shum@digipen.edu
+course                CS120
+section               A
+Practice Assignment   3
+due date              12/07/2018
 
 Brief Description:
   Practice Assignment 3. 
@@ -22,7 +22,8 @@ Brief Description:
  
 Description: Requests the user to enter two numbers. Find all the respective
              squared and cubed numbers between the two numbers that is a 
-             multiple of stride, until range is hit.
+             multiple of stride, until range is hit. Prints the stride,
+             stride squared, and stride cubed to console.
 
      Inputs: void
 

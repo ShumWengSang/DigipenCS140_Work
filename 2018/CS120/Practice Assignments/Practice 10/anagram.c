@@ -1,11 +1,11 @@
 /******************************************************************************
-filename    bsort.c
-author      Roland Shum
-DP email    roland.shum@digipen.edu
-course      CS120
-section     A
-week        10
-due date    12/07/2018
+filename              dice1.c
+author                Roland Shum
+DP email              roland.shum@digipen.edu
+course                CS120
+section               A
+Practice Assignment   10
+due date              12/07/2018
 
 Brief Description:
   Practice Assigment 10. Holds the definition of is_anagram, a function that
@@ -14,16 +14,16 @@ Brief Description:
 ******************************************************************************/
 #include <stdlib.h> /* qsort */
 
-#define MAXCHARS   30
-#define TRUE        1
-#define FALSE       0
+#define MAXCHARS   30   /* The maximum of chars in a char array, by Mead. */
+#define TRUE        1   /* True is 1.                                     */
+#define FALSE       0   /* False is 0.                                    */
 /**************************************************************************
    Function: compare
  
 Description: A function that compares two integers by subtraction.
 
-     Inputs: a -- First pointer to integer to compare.
-             b -- Second pointer to integer to compare.
+     Inputs: a - First pointer to integer to compare.
+             b - Second pointer to integer to compare.
 
     Outputs: The output determines which integer goes first.
              If return value < 0, it means a goes before b.
@@ -41,9 +41,9 @@ int compare (const void * a, const void * b)
  
 Description: Copies the contents of target into destination.
 
-     Inputs: target      -- The char array to copy from.
-             destination -- The char array to copy to.
-             size        -- The size of arrays.
+     Inputs: target      - The char array to copy from.
+             destination - The char array to copy to.
+             size        - The size of arrays.
 
     Outputs: Whether both words are anagrams. 1 for true, 0 for false.
 **************************************************************************/
@@ -65,9 +65,9 @@ void copy (const char target[], char destination[], int size)
 Description: Determines whether two char arrays elements are equal
              in the same index ie a[2] == b[2]
 
-     Inputs: arr1 -- The first array to check.
-             arr2 -- The second array to check.
-             size -- The size of arrays.
+     Inputs: arr1 - The first array to check.
+             arr2 - The second array to check.
+             size - The size of arrays.
 
     Outputs: Returns whether the two arrays are equal. 1 for success
              0 for failure.
@@ -95,9 +95,9 @@ int is_equal(const char arr1[], const char arr2[], int size)
  
 Description: Checks if two words are anagrams by using the <stdlib.h> qsort.
 
-     Inputs: word1[] -- The first word, in C-string literals.
-             word2[] -- The second word, in C-string literals.
-             size  -- The size of the array to sort.
+     Inputs: word1 - The first word, in C-string literals.
+             word2 - The second word, in C-string literals.
+             size  - The size of the array to sort.
 
     Outputs: Whether both words are anagrams. 1 for true, 0 for false.
 **************************************************************************/

@@ -1,0 +1,133 @@
+
+myoutput.txt:
+       00 01 02 03 04 05 06 07  08 09 0A 0B 0C 0D 0E 0F
+--------------------------------------------------------------------------
+000000 57 68 65 6E 20 69 6E 20  74 68 65 20 43 6F 75 72   When in the Cour
+000010 73 65 20 6F 66 20 68 75  6D 61 6E 20 65 76 65 6E   se of human even
+000020 74 73 2C 20 69 74 20 62  65 63 6F 6D 65 73 20 6E   ts, it becomes n
+000030 65 63 65 73 73 61 72 79  20 66 6F 72 20 6F 6E 65   ecessary for one
+000040 20 70 65 6F 70 6C 65 20  74 6F 0A 64 69 73 73 6F    people to.disso
+000050 6C 76 65 20 74 68 65 20  70 6F 6C 69 74 69 63 61   lve the politica
+000060 6C 20 62 61 6E 64 73 20  77 68 69 63 68 20 68 61   l bands which ha
+000070 76 65 20 63 6F 6E 6E 65  63 74 65 64 20 74 68 65   ve connected the
+000080 6D 20 77 69 74 68 20 61  6E 6F 74 68 65 72 2C 20   m with another, 
+000090 61 6E 64 20 74 6F 0A 61  73 73 75 6D 65 20 61 6D   and to.assume am
+0000A0 6F 6E 67 20 74 68 65 20  70 6F 77 65 72 73 20 6F   ong the powers o
+0000B0 66 20 74 68 65 20 65 61  72 74 68 2C 20 74 68 65   f the earth, the
+0000C0 20 73 65 70 61 72 61 74  65 20 61 6E 64 20 65 71    separate and eq
+0000D0 75 61 6C 20 73 74 61 74  69 6F 6E 20 74 6F 0A 77   ual station to.w
+0000E0 68 69 63 68 20 74 68 65  20 4C 61 77 73 20 6F 66   hich the Laws of
+0000F0 20 4E 61 74 75 72 65 20  61 6E 64 20 6F 66 20 4E    Nature and of N
+000100 61 74 75 72 65 27 73 20  47 6F 64 20 65 6E 74 69   ature's God enti
+000110 74 6C 65 20 74 68 65 6D  2C 20 61 20 64 65 63 65   tle them, a dece
+000120 6E 74 20 72 65 73 70 65  63 74 0A 74 6F 20 74 68   nt respect.to th
+000130 65 20 6F 70 69 6E 69 6F  6E 73 20 6F 66 20 6D 61   e opinions of ma
+000140 6E 6B 69 6E 64 20 72 65  71 75 69 72 65 73 20 74   nkind requires t
+000150 68 61 74 20 74 68 65 79  20 73 68 6F 75 6C 64 20   hat they should 
+000160 64 65 63 6C 61 72 65 20  74 68 65 20 63 61 75 73   declare the caus
+000170 65 73 0A 77 68 69 63 68  20 69 6D 70 65 6C 20 74   es.which impel t
+000180 68 65 6D 20 74 6F 20 74  68 65 20 73 65 70 61 72   hem to the separ
+000190 61 74 69 6F 6E 2E 0A 57  65 20 68 6F 6C 64 20 74   ation..We hold t
+0001A0 68 65 73 65 20 74 72 75  74 68 73 20 74 6F 20 62   hese truths to b
+0001B0 65 20 73 65 6C 66 2D 65  76 69 64 65 6E 74 2C 20   e self-evident, 
+0001C0 74 68 61 74 20 61 6C 6C  20 6D 65 6E 20 61 72 65   that all men are
+0001D0 20 63 72 65 61 74 65 64  20 65 71 75 61 6C 2C 0A    created equal,.
+0001E0 74 68 61 74 20 74 68 65  79 20 61 72 65 20 65 6E   that they are en
+0001F0 64 6F 77 65 64 20 62 79  20 74 68 65 69 72 20 43   dowed by their C
+000200 72 65 61 74 6F 72 20 77  69 74 68 20 63 65 72 74   reator with cert
+000210 61 69 6E 20 75 6E 61 6C  69 65 6E 61 62 6C 65 20   ain unalienable 
+000220 52 69 67 68 74 73 2C 0A  74 68 61 74 20 61 6D 6F   Rights,.that amo
+000230 6E 67 20 74 68 65 73 65  20 61 72 65 20 4C 69 66   ng these are Lif
+000240 65 2C 20 4C 69 62 65 72  74 79 20 61 6E 64 20 74   e, Liberty and t
+000250 68 65 20 70 75 72 73 75  69 74 20 6F 66 20 48 61   he pursuit of Ha
+000260 70 70 69 6E 65 73 73 2E  20 2D 2D 54 68 61 74 0A   ppiness. --That.
+000270 74 6F 20 73 65 63 75 72  65 20 74 68 65 73 65 20   to secure these 
+000280 72 69 67 68 74 73 2C 20  47 6F 76 65 72 6E 6D 65   rights, Governme
+000290 6E 74 73 20 61 72 65 20  69 6E 73 74 69 74 75 74   nts are institut
+0002A0 65 64 20 61 6D 6F 6E 67  20 4D 65 6E 2C 20 64 65   ed among Men, de
+0002B0 72 69 76 69 6E 67 0A 74  68 65 69 72 20 6A 75 73   riving.their jus
+0002C0 74 20 70 6F 77 65 72 73  20 66 72 6F 6D 20 74 68   t powers from th
+0002D0 65 20 63 6F 6E 73 65 6E  74 20 6F 66 20 74 68 65   e consent of the
+0002E0 20 67 6F 76 65 72 6E 65  64 2C 20 2D 2D 54 68 61    governed, --Tha
+0002F0 74 20 77 68 65 6E 65 76  65 72 20 61 6E 79 0A 46   t whenever any.F
+000300 6F 72 6D 20 6F 66 20 47  6F 76 65 72 6E 6D 65 6E   orm of Governmen
+000310 74 20 62 65 63 6F 6D 65  73 20 64 65 73 74 72 75   t becomes destru
+000320 63 74 69 76 65 20 6F 66  20 74 68 65 73 65 20 65   ctive of these e
+000330 6E 64 73 2C 20 69 74 20  69 73 20 74 68 65 20 52   nds, it is the R
+000340 69 67 68 74 20 6F 66 0A  74 68 65 20 50 65 6F 70   ight of.the Peop
+000350 6C 65 20 74 6F 20 61 6C  74 65 72 20 6F 72 20 74   le to alter or t
+000360 6F 20 61 62 6F 6C 69 73  68 20 69 74 2C 20 61 6E   o abolish it, an
+000370 64 20 74 6F 20 69 6E 73  74 69 74 75 74 65 20 6E   d to institute n
+000380 65 77 20 47 6F 76 65 72  6E 6D 65 6E 74 2C 0A 6C   ew Government,.l
+000390 61 79 69 6E 67 20 69 74  73 20 66 6F 75 6E 64 61   aying its founda
+0003A0 74 69 6F 6E 20 6F 6E 20  73 75 63 68 20 70 72 69   tion on such pri
+0003B0 6E 63 69 70 6C 65 73 20  61 6E 64 20 6F 72 67 61   nciples and orga
+0003C0 6E 69 7A 69 6E 67 20 69  74 73 20 70 6F 77 65 72   nizing its power
+0003D0 73 20 69 6E 0A 73 75 63  68 20 66 6F 72 6D 2C 20   s in.such form, 
+0003E0 61 73 20 74 6F 20 74 68  65 6D 20 73 68 61 6C 6C   as to them shall
+0003F0 20 73 65 65 6D 20 6D 6F  73 74 20 6C 69 6B 65 6C    seem most likel
+000400 79 20 74 6F 20 65 66 66  65 63 74 20 74 68 65 69   y to effect thei
+000410 72 20 53 61 66 65 74 79  20 61 6E 64 0A 48 61 70   r Safety and.Hap
+000420 70 69 6E 65 73 73 2E 20  50 72 75 64 65 6E 63 65   piness. Prudence
+000430 2C 20 69 6E 64 65 65 64  2C 20 77 69 6C 6C 20 64   , indeed, will d
+000440 69 63 74 61 74 65 20 74  68 61 74 20 47 6F 76 65   ictate that Gove
+000450 72 6E 6D 65 6E 74 73 20  6C 6F 6E 67 0A 65 73 74   rnments long.est
+000460 61 62 6C 69 73 68 65 64  20 73 68 6F 75 6C 64 20   ablished should 
+000470 6E 6F 74 20 62 65 20 63  68 61 6E 67 65 64 20 66   not be changed f
+000480 6F 72 20 6C 69 67 68 74  20 61 6E 64 20 74 72 61   or light and tra
+000490 6E 73 69 65 6E 74 20 63  61 75 73 65 73 3B 20 61   nsient causes; a
+0004A0 6E 64 0A 61 63 63 6F 72  64 69 6E 67 6C 79 20 61   nd.accordingly a
+0004B0 6C 6C 20 65 78 70 65 72  69 65 6E 63 65 20 68 61   ll experience ha
+0004C0 74 68 20 73 68 65 77 6E  2C 20 74 68 61 74 20 6D   th shewn, that m
+0004D0 61 6E 6B 69 6E 64 20 61  72 65 20 6D 6F 72 65 20   ankind are more 
+0004E0 64 69 73 70 6F 73 65 64  20 74 6F 0A 73 75 66 66   disposed to.suff
+0004F0 65 72 2C 20 77 68 69 6C  65 20 65 76 69 6C 73 20   er, while evils 
+000500 61 72 65 20 73 75 66 66  65 72 61 62 6C 65 2C 20   are sufferable, 
+000510 74 68 61 6E 20 74 6F 20  72 69 67 68 74 20 74 68   than to right th
+000520 65 6D 73 65 6C 76 65 73  20 62 79 0A 61 62 6F 6C   emselves by.abol
+000530 69 73 68 69 6E 67 20 74  68 65 20 66 6F 72 6D 73   ishing the forms
+000540 20 74 6F 20 77 68 69 63  68 20 74 68 65 79 20 61    to which they a
+000550 72 65 20 61 63 63 75 73  74 6F 6D 65 64 2E 20 42   re accustomed. B
+000560 75 74 20 77 68 65 6E 20  61 20 6C 6F 6E 67 20 74   ut when a long t
+000570 72 61 69 6E 0A 6F 66 20  61 62 75 73 65 73 20 61   rain.of abuses a
+000580 6E 64 20 75 73 75 72 70  61 74 69 6F 6E 73 2C 20   nd usurpations, 
+000590 70 75 72 73 75 69 6E 67  20 69 6E 76 61 72 69 61   pursuing invaria
+0005A0 62 6C 79 20 74 68 65 20  73 61 6D 65 20 4F 62 6A   bly the same Obj
+0005B0 65 63 74 20 65 76 69 6E  63 65 73 20 61 0A 64 65   ect evinces a.de
+0005C0 73 69 67 6E 20 74 6F 20  72 65 64 75 63 65 20 74   sign to reduce t
+0005D0 68 65 6D 20 75 6E 64 65  72 20 61 62 73 6F 6C 75   hem under absolu
+0005E0 74 65 20 44 65 73 70 6F  74 69 73 6D 2C 20 69 74   te Despotism, it
+0005F0 20 69 73 20 74 68 65 69  72 20 72 69 67 68 74 2C    is their right,
+000600 20 69 74 20 69 73 0A 74  68 65 69 72 20 64 75 74    it is.their dut
+000610 79 2C 20 74 6F 20 74 68  72 6F 77 20 6F 66 66 20   y, to throw off 
+000620 73 75 63 68 20 47 6F 76  65 72 6E 6D 65 6E 74 2C   such Government,
+000630 20 61 6E 64 20 74 6F 20  70 72 6F 76 69 64 65 20    and to provide 
+000640 6E 65 77 20 47 75 61 72  64 73 20 66 6F 72 0A 74   new Guards for.t
+000650 68 65 69 72 20 66 75 74  75 72 65 20 73 65 63 75   heir future secu
+000660 72 69 74 79 2E 2D 2D 53  75 63 68 20 68 61 73 20   rity.--Such has 
+000670 62 65 65 6E 20 74 68 65  20 70 61 74 69 65 6E 74   been the patient
+000680 20 73 75 66 66 65 72 61  6E 63 65 20 6F 66 20 74    sufferance of t
+000690 68 65 73 65 0A 43 6F 6C  6F 6E 69 65 73 3B 20 61   hese.Colonies; a
+0006A0 6E 64 20 73 75 63 68 20  69 73 20 6E 6F 77 20 74   nd such is now t
+0006B0 68 65 20 6E 65 63 65 73  73 69 74 79 20 77 68 69   he necessity whi
+0006C0 63 68 20 63 6F 6E 73 74  72 61 69 6E 73 20 74 68   ch constrains th
+0006D0 65 6D 20 74 6F 20 61 6C  74 65 72 0A 74 68 65 69   em to alter.thei
+0006E0 72 20 66 6F 72 6D 65 72  20 53 79 73 74 65 6D 73   r former Systems
+0006F0 20 6F 66 20 47 6F 76 65  72 6E 6D 65 6E 74 2E 20    of Government. 
+000700 54 68 65 20 68 69 73 74  6F 72 79 20 6F 66 20 74   The history of t
+000710 68 65 20 70 72 65 73 65  6E 74 20 4B 69 6E 67 20   he present King 
+000720 6F 66 0A 47 72 65 61 74  20 42 72 69 74 61 69 6E   of.Great Britain
+000730 20 69 73 20 61 20 68 69  73 74 6F 72 79 20 6F 66    is a history of
+000740 20 72 65 70 65 61 74 65  64 20 69 6E 6A 75 72 69    repeated injuri
+000750 65 73 20 61 6E 64 20 75  73 75 72 70 61 74 69 6F   es and usurpatio
+000760 6E 73 2C 20 61 6C 6C 0A  68 61 76 69 6E 67 20 69   ns, all.having i
+000770 6E 20 64 69 72 65 63 74  20 6F 62 6A 65 63 74 20   n direct object 
+000780 74 68 65 20 65 73 74 61  62 6C 69 73 68 6D 65 6E   the establishmen
+000790 74 20 6F 66 20 61 6E 20  61 62 73 6F 6C 75 74 65   t of an absolute
+0007A0 20 54 79 72 61 6E 6E 79  20 6F 76 65 72 0A 74 68    Tyranny over.th
+0007B0 65 73 65 20 53 74 61 74  65 73 2E 20 54 6F 20 70   ese States. To p
+0007C0 72 6F 76 65 20 74 68 69  73 2C 20 6C 65 74 20 46   rove this, let F
+0007D0 61 63 74 73 20 62 65 20  73 75 62 6D 69 74 74 65   acts be submitte
+0007E0 64 20 74 6F 20 61 20 63  61 6E 64 69 64 20 77 6F   d to a candid wo
+0007F0 72 6C 64 2E 0A                                     rld..
+

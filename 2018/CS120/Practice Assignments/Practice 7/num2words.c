@@ -1,12 +1,11 @@
 /******************************************************************************
-filename    num2words.c
-author      Roland Shum
-DP email    roland.shum@digipen.edu
-course      CS120
-section     A
-week        7
-due date    12/07/2018
-
+filename              num2words.c
+author                Roland Shum
+DP email              roland.shum@digipen.edu
+course                CS120
+section               A
+Practice Assignment   7
+due date              12/07/2018
 Brief Description:
   Practice Assignment 7. Definition for number_to_words function. This function
   takes in a two digit number and changes it into its word form.
@@ -14,18 +13,17 @@ Brief Description:
 ******************************************************************************/
 #include <stdio.h> /* printf */
 
-#define DIGITS 2
-#define MAXCHARS 50
-#define TRUE 1
-#define FALSE 0
+#define MAXCHARS 50 /* The maximum amount of char in the array. */
+#define TRUE 1      /* TRUE is 1.                               */
+#define FALSE 0     /* FALSE is 0.                              */
 /*****************************************************************************
    Function: c_strcpr
  
 Description: Takes in two c-string arrays and checks if each element are
              the same. Does size checking as well.
 
-     Inputs: first_array  -- Char array of first string to compare.
-             second_array -- Char array of second strong to compare.
+     Inputs: first_array  - Char array of first string to compare.
+             second_array - Char array of second strong to compare.
 
     Outputs: Returns whether the two string's elements are equal.
              1 (TRUE) for true, 0 (FALSE) for false
@@ -74,11 +72,11 @@ Description: Takes two different c-style strings and concactenate them
              second_word. Only for C-style strings! No safety is performed 
              by this function!
 
-     Inputs: first_word  -- Char array of first word to add.
-             second_word -- Char array of second word to add.
-             dest        -- Char array that contains the two words together.
+     Inputs: first_word  - Char array of first word to add.
+             second_word - Char array of second word to add.
+             dest        - Char array that contains the two words together.
 
-    Outputs: void
+    Outputs: None. Dest will be modified to be both words concateted.
 ******************************************************************************/
 void custom_strcnt(const char first_word[],
                    const char second_word[],
@@ -122,9 +120,9 @@ void custom_strcnt(const char first_word[],
 Description: Takes a two-digit number and prints out its respective
              English word.
 
-     Inputs: number  -- The number to parse.
+     Inputs: number - The number to parse.
 
-    Outputs: void
+    Outputs: None
 ******************************************************************************/
 void number_to_words(int number)
 {

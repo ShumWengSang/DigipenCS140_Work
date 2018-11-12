@@ -1,16 +1,15 @@
 /******************************************************************************
-filename    sumdigits.c
-author      Roland Shum
-DP email    roland.shum@digipen.edu
-course      CS120
-section     A
-week        5
-due date    12/07/2018
+filename              sumdigits.c
+author                Roland Shum
+DP email              roland.shum@digipen.edu
+course                CS120
+section               A
+Practice Assignment   5
+due date              12/07/2018
 
 Brief Description:
   Practice Assignment 5. The program prints out the sum and product 
   of the digits in a user-given integer.          
-  
 ******************************************************************************/
 #include <stdio.h> /* printf */
 /**************************************************************************

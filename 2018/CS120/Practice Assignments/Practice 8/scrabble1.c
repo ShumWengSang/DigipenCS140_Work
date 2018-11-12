@@ -1,11 +1,12 @@
 /******************************************************************************
-filename    scrabble1.c
-author      Roland Shum
-DP email    roland.shum@digipen.edu
-course      CS120
-section     A
-week        8
-due date    12/07/2018
+filename              scrabble1.c
+author                Roland Shum
+DP email              roland.shum@digipen.edu
+course                CS120
+section               A
+Practice Assignment   8
+due date              12/07/2018
+
 
 Brief Description:
   Practice Assigment 8. A program that prompts the user for an English word, 
