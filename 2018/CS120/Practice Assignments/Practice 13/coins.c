@@ -111,11 +111,18 @@ void calculate_coins(int value, int num_coins)
   if(!method_ways)
   {
     /* Print that its not possible. */
-    printf("It is not possible to make $%4.2f from %i coins.\n", value / 100.f, num_coins);
+    printf("It is not possible to make $%4.2f from %i coins.\n", value
+           / 100.f, num_coins);
+  }
+  else if (method_ways == 1)  /* There is only one way to find value. */
+  {
+    printf("There is %i possible way to make $%.2f from %i coins.\n", 
+           method_ways, value / 100.f, num_coins);
   }
   else /* Else meaning there are ways to find value using all coins. */
   {
     /* Print how many different variations are possible to find value. */
-    printf("There are %i possible ways to make $%.2f from %i coins.\n", method_ways, value / 100.f, num_coins);
+    printf("There are %i possible ways to make $%.2f from %i coins.\n", 
+           method_ways, value / 100.f, num_coins);
   }
 }

@@ -5,7 +5,7 @@ DP email              roland.shum@digipen.edu
 course                CS120
 section               A
 Practice Assignment   20
-due date              12/07/2018
+due date              12/14/2018
 
 Brief Description:
   Practice Assigment 20. 
@@ -30,12 +30,12 @@ int GCD(int a, int b)
   /* Handle a being negatives. */
   if (a < 0)
   {
-	  a *= -1;
+    a *= -1;
   }
   /* Handle b being negative. */
   if (b < 0)
   {
-	  b *= -1;
+    b *= -1;
   }
   
   /* Handle 0 cases. If either a or b is 0. */
@@ -168,7 +168,7 @@ Description: Given two FRACTIONS, multiply them as you would a normal fraction,
 struct FRACTION multiply_fractions(const struct FRACTION *a, 
                                    const struct FRACTION *b)
 {
-  struct FRACTION result;	/* Result of the operation. */
+  struct FRACTION result; /* Result of the operation. */
   int greatest_common_deno; /* GCD for simplification.  */
   
   /*
@@ -188,9 +188,9 @@ struct FRACTION multiply_fractions(const struct FRACTION *a,
   /* If it is greater then 0, then we simplify. */
   if (greatest_common_deno > 1)
   {
-	  /* Divide by GCD to simplify. */
-	  result.numerator /= greatest_common_deno;
-	  result.denominator /= greatest_common_deno;
+    /* Divide by GCD to simplify. */
+    result.numerator /= greatest_common_deno;
+    result.denominator /= greatest_common_deno;
   }
   /* Return the result. */
   return result;
@@ -247,19 +247,16 @@ struct MIXED_FRACTION reduced_to_mixed(const struct FRACTION *fraction)
   /* The fraction is ready. While the numerator is greater then denominator, */
   while(result.proper_fraction.numerator >= result.proper_fraction.denominator)
   {
-	/* If numerator is 0, then its a whole number and we can break out. */
-	if (result.proper_fraction.numerator == 0)
-	{
-		break;
-	}
-
+    /* If numerator is 0, then its a whole number and we can break out. */
+    if (result.proper_fraction.numerator == 0)
+    {
+      break;
+    }
     /* Subtract one value worth of denominator from numerator. */
     result.proper_fraction.numerator -= result.proper_fraction.denominator;
     
     /* We increase the whole number count. */
     result.whole_number++;
-
-
   }
   
   /* Was the original number a negative number? */

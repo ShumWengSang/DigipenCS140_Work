@@ -18,11 +18,11 @@ Brief Description:
 #include <stdio.h> /* printf     */
 #include "PRNG.h"  /* PRNG stuff */
 
-#define SPIN_COST       10  /* The price to spin. */
-#define NO_WIN          0   /* INT representation of no combo. */
-#define TWO_OF_A_KIND   1   /* INT representation of two of a kind. */
+#define SPIN_COST       10  /* The price to spin.                     */
+#define NO_WIN          0   /* INT representation of no combo.        */
+#define TWO_OF_A_KIND   1   /* INT representation of two of a kind.   */
 #define THREE_OF_A_KIND 2   /* INT representation of three of a kind. */
-/**************************************************************************
+/******************************************************************************
    Function: detect_combo
  
 Description: This function takes in an array and finds of any combo can be
@@ -37,7 +37,7 @@ Description: This function takes in an array and finds of any combo can be
 
     Outputs: INTS the represents if the player won. 0 means no win. 1 means
              2 of the same. 2 means 3 of the same. Else means nothing.
-**************************************************************************/
+******************************************************************************/
 int detect_combo(int arr[], int size)
 {
   int combo_count = NO_WIN;  /* The combos detected, default no win. */
@@ -67,7 +67,7 @@ int detect_combo(int arr[], int size)
   return combo_count;
 }
 
-/**************************************************************************
+/******************************************************************************
    Function: spin_slots
  
 Description: This function takes the amount of slots to spin, and spins 
@@ -79,7 +79,7 @@ Description: This function takes the amount of slots to spin, and spins
     Outputs: INTS the represents if the player won. 0 means no win. 1 means
              2 of the same. 2 means 3 of the same. Else means nothing. Also
              prints out the slot numbers.
-**************************************************************************/
+******************************************************************************/
 int spin_slots(int spin_amount)
 {
   int i;               /* Loop Variable.                         */
@@ -91,20 +91,20 @@ int spin_slots(int spin_amount)
   /* Spin as many times as passed in. */
   for(i = 0 ; i < spin_amount; i++)
   {
-    /* Generate a random result from the spin, from 1 - 5. */
+    /* Generate a random result from the spin, from 1 - 6. */
     spin_results[i] = RandomInt(1, 5);
     
     /* Add one to record the amount of times spin_results[i] has appeared. */
-    numbers[spin_results[i]]++;
+    numbers[spin_results[i] - 1]++;
   }
   /* Print out the results of the spin. */
-  printf(" %i %i %i ", spin_results[0], spin_results[1], spin_results[2]);
+  printf(" %i  %i  %i \n", spin_results[0], spin_results[1], spin_results[2]);
   
   /* Detect combo and return the INT representing it. */
   return detect_combo(numbers, 5);
 }
 
-/**************************************************************************
+/******************************************************************************
    Function: main
  
 Description: A slot machine program. Player starts with 100 points, and each
@@ -115,7 +115,7 @@ Description: A slot machine program. Player starts with 100 points, and each
      Inputs: void
 
     Outputs: 0 for Success (Always).
-**************************************************************************/
+******************************************************************************/
 int main(void)
 {
   int user_input;        /* Variable to store user input.     */
@@ -140,9 +140,9 @@ int main(void)
     money_count -= SPIN_COST;
     
     /* User wins nothing. */
-    if(result == NO_COMBO)
+    if(result == NO_WIN)
     {
-      printf("You didn't win anything");
+      printf("You didn't win anything. ");
     }
     /* If the user wins a 2 of a kind combo. */
     else if(result == TWO_OF_A_KIND)
@@ -151,7 +151,7 @@ int main(void)
       money_count += 15;
       
       /* Print the two of a kind prompt */
-      printf("You get 15 points");
+      printf("You win 15 points. ");
     }
     else if(result == THREE_OF_A_KIND)
     {
@@ -159,13 +159,23 @@ int main(void)
       money_count += 30;
       
       /* print the prompt for a big win. */
-      printf("BIG WINNER! You get 30 points!!");
+      printf("BIG WINNER! You get 30 points!! ");
     }
     /* print the amount of money the player has left. */
     printf("You now have %i points.\n", money_count);
     
+    /* if the user does not have enough money.*/
+    if(money_count < SPIN_COST)
+    {
+      /* Tell the user he doesn't have enough money. */
+      printf("You don't have enough to play. Go home. \n");
+        
+      /*break out of the while loop and end program.*/
+      break;
+    }
+    
     /* Prompt the user if he wants to continue. */
-    printf("Play again? (1=yes,0=no) ");
+    printf("\nPlay again? (1=yes,0=no) ");
     
     /* Read the user input. */
     scanf("%i", &user_input);
@@ -176,21 +186,12 @@ int main(void)
       /* End the loop. */
       break;
     }
-    else if(user_input == 1) /* User continues playing. */
-    {
-      /* If the user does not have enough money. */
-      if(money_count < SPIN_COST)
-      {
-        /* Tell the user he doesn't have enough money. */
-        printf("You don't have enough to play. Go home.");
-        
-        /* Break out of the while loop and end program. */
-        break;
-      }
-    }
   }
   /* Loop always runs. Terminated by break statements above. */
-  while(true);
+  while(1);
+  
+  /* One more end line to end it. */
+  printf("\n");
 
   return 0;
 }
