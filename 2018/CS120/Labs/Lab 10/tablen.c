@@ -15,7 +15,7 @@ Brief Description:
 
 #define ASCII_TAB 9          /* ASCII representation of a horizontal tab. */
 #define MAX_LINE_LENGTH 1000 /* Maximum buffer array size. */
-/**************************************************************************
+/*******************************************************************************
    Function: count_tabs
  
 Description: Given the file name, reads the files and determines if any lines 
@@ -26,7 +26,7 @@ Description: Given the file name, reads the files and determines if any lines
      Inputs: filename - c-string name of the file.
 
     Outputs: 0 for no file found. 1 for no errors.
-**************************************************************************/
+*******************************************************************************/
 int count_tabs(const char *filename)
 {
   /* Buffer to store the information from file. */

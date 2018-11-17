@@ -49,9 +49,9 @@ void proper(const char *filename)
 {
   FILE *file = NULL;
   char buffer = 0; /* Buffer to hold lines from file. */
-  char last_char = 0; /* The last read char.*/
-  char second_last_char = 0; /* The second last read char. */
-  char trailing_char = 0; /* The third last read char. */
+  
+  /* bool to hold whether we have passed a '.', '?', or '!' .*/
+  int b_punc_reached = 1; 
   
   /* Open file, if opening failed, ends function. */
   if((file = fopen(filename, "rt")) == NULL)
@@ -60,46 +60,44 @@ void proper(const char *filename)
     return;
   }
   
-  /* Read the first character and print it normally. */
-  buffer = fgetc(file);
-  printf("%c",buffer);
-  
-  /* Since we read a char, we should update our last_char. */
-  last_char = buffer;
-  
   /* Read to end of file and store each read char into buffer.*/
   while((buffer = fgetc(file)) != EOF)
   {
-    /* If trialing is a punc, and last char is a space */
-    if(my_ispunctuation(second_last_char) && isspace(last_char))
+    /* If this is the first word after a punctuation and if it is not a space */
+    if(b_punc_reached && !isspace(buffer))
     {
-      /* Then we leave the char is uppercase form and print. */
+      /* We leave it uppercase. */
       printf("%c", buffer);
+      
+      /* We have printed one uppercase, we can now set the rest to lower. */
+      b_punc_reached = 0;
     }
-    /* Handle new paragraph. */
-    else if(second_last_char == '\n' && last_char == '\n')
-    {
-      /* This is actually some magic english thing I don't understand. */
-      if(trailing_char == ':')
-      {
-        /* But just make it lowercase. */
-        printf("%c", tolower(buffer));
-      }
-      else /* This is a legit new paragraph, so leave it be. */
-      {
-        /* Then we leave the char is uppercase form and print. */
-        printf("%c", buffer);
-      }
-    }
-    else /* Else it should be lowercase. */
+    else /* Else we print as normal. */
     {
       printf("%c", tolower(buffer));
+      
+      /* If the current character is a '.', we check if the next is a space. */
+      if(my_ispunctuation(buffer))
+      {
+        /* Take the next char to check if it is a space. */
+        char nextChar = fgetc(file);
+        
+        /* Check if it is space... */
+        if(isspace(nextChar))
+        {
+          /* Print it out. */
+          printf("%c", nextChar);
+          
+          /* Set b_punc_reached to true to make next letter upper. */
+          b_punc_reached = 1;
+        }
+        else
+        {
+          /* Nothing of importance. Put it back into the stream. */
+          ungetc(nextChar, file);
+        }
+      }
     }
-    
-    /* We set the last_char and second_last_char to be ready for next loop. */
-    trailing_char = second_last_char;
-    second_last_char = last_char;
-    last_char = buffer;
   }
   
   /* We have finished the file. Time to close it. */
