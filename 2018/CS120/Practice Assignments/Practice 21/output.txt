@@ -1,1 +1,9 @@
-X X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX XX X X X   X X X X   XXX XXX XXX XXon eXXXXeX XXX X
+Usage:  replacestr filename oldstring newstring
+
+where:  filename is the file to search through
+        oldstring is the text to search for
+        newstring is the text to replace oldstring with
+
+Example: poem.txt are "may be"
+
+If either of the strings contain spaces, it must be surrounded by quotes.

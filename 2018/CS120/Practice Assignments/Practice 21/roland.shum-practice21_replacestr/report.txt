@@ -1,0 +1,45 @@
+============= CHECK CONTENT BEGINS 2018-11-14 10:55:10 ===============
+Archive:  ../2018-11-14-10-55-10.zip
+  inflating: replacestr.c            
+Checking content of 2018-11-14-10-55-10.zip
+replacestr.c found
+============= CHECK CONTENT ENDS ==========================
+
+============= REPORT BEGINS 2018-11-14 10:55:11 ===============
+Archive:  ../2018-11-14-10-55-10.zip
+  inflating: replacestr.c            
+======== COMPILE gcc ==============
+gcc -o practice21_replacestr-roland.shum.exe  main.c replacestr.c -Wextra -ansi -pedantic -Werror -Wno-unused-result -O
+replacestr.c:19:10: fatal error: spellcheck.h: No such file or directory
+ #include "spellcheck.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [gcc] Error 1
+======== COMPILE valgrind ==============
+gcc -o practice21_replacestr-roland.shum.exe  main.c replacestr.c -Wall -Wextra -ansi -pedantic -Werror -Wno-unused-result -g
+replacestr.c:19:10: fatal error: spellcheck.h: No such file or directory
+ #include "spellcheck.h"
+          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [valgrind] Error 1
+=========RUN SKIPPED DUE TO COMPILE ERRORS
+======END REPORT=============
+
+
+============= CHECK CONTENT BEGINS 2018-11-14 10:57:56 ===============
+Archive:  ../2018-11-14-10-57-56.zip
+  inflating: replacestr.c            
+Checking content of 2018-11-14-10-57-56.zip
+replacestr.c found
+============= CHECK CONTENT ENDS ==========================
+
+============= REPORT BEGINS 2018-11-14 10:57:57 ===============
+Archive:  ../2018-11-14-10-57-56.zip
+  inflating: replacestr.c            
+======== COMPILE gcc ==============
+gcc -o practice21_replacestr-roland.shum.exe  main.c replacestr.c -Wextra -ansi -pedantic -Werror -Wno-unused-result -O
+======== COMPILE valgrind ==============
+gcc -o practice21_replacestr-roland.shum.exe  main.c replacestr.c -Wall -Wextra -ansi -pedantic -Werror -Wno-unused-result -g
+=========RUN=================
+running 0           -- OK
+======END REPORT=============
