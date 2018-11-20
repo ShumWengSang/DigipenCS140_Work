@@ -27,7 +27,7 @@ typedef enum DIRECTION
   dirUP,    /* Go up    = 0. */
   dirDOWN,  /* Go down  = 1. */
   dirRIGHT, /* Go right = 2. */
-  dirLEFT  /* Go left  = 3. */
+  dirLEFT   /* Go left  = 3. */
 } DIRECTION;
 
 /* Struct to hold position x and y values. */
@@ -121,16 +121,16 @@ my_vector interpret_move(DIRECTION direction)
   switch(direction)
   {
     case dirUP: /* Move up. */
-      init_vector(&vector_move, 0, 1);
+      init_vector(&vector_move, 0, -1);
       break;      
     case dirDOWN: /* Move down. */
-      init_vector(&vector_move, 0, -1);
+      init_vector(&vector_move, 0, 1);
       break;  
     case dirRIGHT:  /* Move right. */
-      init_vector(&vector_move, -1, 0);
+      init_vector(&vector_move, 1, 0);
       break;
     case dirLEFT:  /* Move left. */
-      init_vector(&vector_move, 1, 0);
+      init_vector(&vector_move, -1, 0);
       break;
     default:
       /* Nothing here. */
@@ -154,11 +154,11 @@ void print_map(char map[][HEIGHT] )
   int i, j; /* Loop variable. */
   
   /* Print the array out. */
-  for(i = 0; i < WIDTH; i++)
+  for(i = 0; i < HEIGHT; i++)
   {
-    for(j = 0; j < HEIGHT; j++)
+    for(j = 0; j < WIDTH; j++)
     {
-      printf("%2c", map[i][j]);
+      printf("%2c", map[j][i]);
     }
     /* Add a newline at the end of each x-line. */
     printf("\n");
@@ -186,13 +186,13 @@ Description: Given a vector to the move and the 2D char map, returns TRUE (1)
 int isMoveValid(const my_vector *nextMove, char map[][HEIGHT] )
 {
   /* X exceeds the bounds of map. */
-  if( 0  > nextMove->pos_x || nextMove->pos_x > WIDTH)
+  if( 0  > nextMove->pos_x || nextMove->pos_x >= WIDTH)
   {
     /* Return false. */
     return FALSE;
   }
   /* Y exceeds the bounds of map. */
-  else if( 0 > nextMove->pos_y || nextMove->pos_y > HEIGHT)
+  else if( 0 > nextMove->pos_y || nextMove->pos_y >= HEIGHT)
   {
     /* Return false. */
     return FALSE;
@@ -232,10 +232,10 @@ int isSurrounded(const my_vector *position, char map[][HEIGHT] )
   int maxIndex_y = position->pos_y + 1;
   
   /* Clamp the min and max values to the map so we don't exceed it. */
-  minIndex_x = clamp(minIndex_x, 0, WIDTH);
-  maxIndex_x = clamp(maxIndex_x, 0, WIDTH);
-  minIndex_y = clamp(minIndex_y, 0, HEIGHT);
-  maxIndex_y = clamp(maxIndex_y, 0, HEIGHT);
+  minIndex_x = clamp(minIndex_x, 0, WIDTH - 1);
+  maxIndex_x = clamp(maxIndex_x, 0, WIDTH - 1);
+  minIndex_y = clamp(minIndex_y, 0, HEIGHT - 1);
+  maxIndex_y = clamp(maxIndex_y, 0, HEIGHT - 1);
   
   /* Check every tile around it */
   for(i = minIndex_x; i <= maxIndex_x; i++)
@@ -326,22 +326,26 @@ void random_walk(int showall)
         
       /* If we have walked 26 letters */
       if(path_value == 'Z')
-      {
-        /* Print prompt. */ 
-        printf("All 26 steps were completed.\n");
-        
+      { 
         /* End loop. */
         break;
       }
     }
-  }  
+  }
+  /* Print the array at the end. */
+  print_map(map); 
+  
   /* If we were surrounded, we wouldn't have walked until Z */
   if (path_value != 'Z')
   {
 	  /* This means we didn't walk all the way. Print that out. */
 	  printf("Only completed %i steps.\n", path_value - 'A');
   }
+  else  /* All steps were completed. */
+  {
+    /* Print prompt. */ 
+    printf("All 26 steps were completed.\n");
+  }
 
-  /* Print the array at the end. */
-  print_map(map);
+
 }
