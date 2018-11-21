@@ -1,1 +1,1 @@
-magic 9 0 > myoutput.txt
+magic 41 0 > myoutput.txt
