@@ -1,0 +1,1 @@
+magic 9 0 > myoutput.txt

@@ -14,27 +14,27 @@ Brief Description:
 #include <stdio.h> /* Printf */
 #include "PRNG.h"  /* RandomInt */
 
-#define WIDTH 8   /* Width of the map, also the char array. */
+#define WIDTH 8   /* Width of the map, also the char array.  */
 #define HEIGHT 8  /* Height of the map, also the char array. */
-#define TRUE 1    /* Magic number to emulate bool */
-#define FALSE 0   /* Magic number to emulate bool */
-#define START_X 0 /* Starting position in x axis. */
-#define START_Y 0 /* Starting position in y axis. */
+#define TRUE 1    /* Magic number to emulate bool            */
+#define FALSE 0   /* Magic number to emulate bool            */
+#define START_X 0 /* Starting position in x axis.            */
+#define START_Y 0 /* Starting position in y axis.            */
 
 /* Enum to determine movement direction. */
 typedef enum DIRECTION 
 {
-  dirUP,    /* Go up    = 0. */
-  dirDOWN,  /* Go down  = 1. */
-  dirRIGHT, /* Go right = 2. */
-  dirLEFT   /* Go left  = 3. */
+  dirUP,      /* Go up    = 0. */
+  dirDOWN,    /* Go down  = 1. */
+  dirRIGHT,   /* Go right = 2. */
+  dirLEFT     /* Go left  = 3. */
 } DIRECTION;
 
 /* Struct to hold position x and y values. */
 typedef struct my_vector
 {
-  int pos_x;
-  int pos_y;
+  int pos_x;  /* x value. */
+  int pos_y;  /* y value. */
 } my_vector;
 
 /*******************************************************************************
@@ -51,14 +51,19 @@ Description: Given a value, clamps between the given min and max. Returns the
 *******************************************************************************/
 int clamp(int value, int min, int max)
 {
+  /* If value is greater than max, */
   if(value > max)
   {
+    /* Return max. */
     return max;
   }
+  /* Else if value is smaller than min */
   else if(value < min)
   {
+    /* Returns the min. */
     return min;
   }
+  /* Else value is in between min and max, so return number. */
   return value;
 }
 
@@ -76,6 +81,7 @@ Description: Given a pointer to a my_vector struct, sets its x and y components
 *******************************************************************************/
 void init_vector(my_vector *vec, int x, int y)
 {
+  /* Sets the vector x and y components to the given x and y inputs. */
   vec->pos_x = x;
   vec->pos_y = y;
 }
@@ -145,11 +151,13 @@ my_vector interpret_move(DIRECTION direction)
  
 Description: Prints the given 2D char array neatly to console.
 
-     Inputs: map - The 2D array to print out.
+     Inputs: map            - The 2D array to print out.
+             print_new_line - boolean to print new line after map is finished
+                              printing. 0 for false, 1 for true.
 
     Outputs: None.
 *******************************************************************************/
-void print_map(char map[][HEIGHT] )
+void print_map(char map[][HEIGHT], int print_new_line )
 {
   int i, j; /* Loop variable. */
   
@@ -163,8 +171,12 @@ void print_map(char map[][HEIGHT] )
     /* Add a newline at the end of each x-line. */
     printf("\n");
   }
-  /* Add a newline at the end of the printing function. */
-  printf("\n");
+  /* If we need to print a new line. */
+  if(print_new_line)
+  {
+    /* Add a newline at the end of the printing function. */
+    printf("\n");
+  }
 }
 
 /*******************************************************************************
@@ -223,7 +235,7 @@ Description: Given a position and the 2D map, determines if the current position
 *******************************************************************************/
 int isSurrounded(const my_vector *position, char map[][HEIGHT] )
 { 
-  int i, j;
+  int i; /* Loop variable. */
   
   /* Get min and max of the surrounding tiles. */
   int minIndex_x = position->pos_x - 1;
@@ -237,19 +249,25 @@ int isSurrounded(const my_vector *position, char map[][HEIGHT] )
   minIndex_y = clamp(minIndex_y, 0, HEIGHT - 1);
   maxIndex_y = clamp(maxIndex_y, 0, HEIGHT - 1);
   
-  /* Check every tile around it */
+  /* Check horizontally if there are empty spots. */
   for(i = minIndex_x; i <= maxIndex_x; i++)
   {
-    for(j = minIndex_y; j <= maxIndex_y; j++)
+    if(map[i][position->pos_y] == '.')
     {
-      /* If there is a tile that is a '.' */
-      if(map[i][j] == '.')
-      {
-        /* There is an empty space. Return false. */
-        return FALSE;
-      }
+      /* There is an empty space. Return false. */
+      return FALSE;
     }
   }
+  /* Check vertical if there are empty spots. */
+  for(i = minIndex_y; i <= maxIndex_y; i++)
+  {
+    if(map[position->pos_x][i] == '.')
+    {
+      /* There is an empty space. Return false. */
+      return FALSE;
+    }
+  }
+
   /* There is no empty space. Return true. */
   return TRUE;
 }
@@ -269,12 +287,10 @@ Description: Does a random walk over a 8x8 two-dimension array. Prints out the
 *******************************************************************************/
 void random_walk(int showall)
 {
-  int i, j;
-  char map[WIDTH][HEIGHT];
-  char path_value = 'A';
-  my_vector position;
-  
-
+  int i, j;                 /* Loop variable.                  */
+  char map[WIDTH][HEIGHT];  /* The 2D array map.               */
+  char path_value = 'A';    /* The first letter to start from. */
+  my_vector position;       /* The position to start from.     */
   
   /* Set all elements of map to '.' */
   for(i = 0; i < WIDTH; i++)
@@ -287,7 +303,7 @@ void random_walk(int showall)
   /* Set the current position to [0,0] */
   init_vector(&position, START_X, START_Y);
   
-  /* Set where we currently is to A */
+  /* Set where we currently on the map to A */
   map[position.pos_x][position.pos_y] = path_value;
   
   /* Move path_value up. */
@@ -314,38 +330,47 @@ void random_walk(int showall)
       /* Change the current tileset to path_value. */
       map[position.pos_x][position.pos_y] = path_value; 
 
-	  /* path_value change to next letter. */
+    /* path_value change to next letter. */
       path_value++;
+      
+      /* If we have walked 26 letters AKA finished the thing. */
+      if(path_value == 'Z' + 1)
+      { 
+        /* End loop. */
+        break;
+      }   
       
       /* If showall is true */
       if(showall)
       {
         /* Print the array out. */
-        print_map(map);
+        print_map(map, 1);
       }
-        
-      /* If we have walked 26 letters */
-      if(path_value == 'Z')
-      { 
-        /* End loop. */
-        break;
-      }
+       
     }
   }
-  /* Print the array at the end. */
-  print_map(map); 
+  
+  /* If else to fix endline diff error. */
+  if(!showall)
+  {
+    /* Print the array at the end. */
+    print_map(map , 0); 
+  }
+  else
+  {
+    /* Print the array at the end. */
+    print_map(map, 1);
+  }
   
   /* If we were surrounded, we wouldn't have walked until Z */
-  if (path_value != 'Z')
+  if (path_value != 'Z' + 1)
   {
-	  /* This means we didn't walk all the way. Print that out. */
-	  printf("Only completed %i steps.\n", path_value - 'A');
+    /* This means we didn't walk all the way. Print that out. */
+    printf("Only completed %i steps.\n", path_value - 'A');
   }
   else  /* All steps were completed. */
   {
     /* Print prompt. */ 
     printf("All 26 steps were completed.\n");
   }
-
-
 }
