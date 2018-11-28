@@ -9,7 +9,7 @@ due date      12/02/2018
 
 Brief Description:
   Lab 12. Definition of format and dump. Together, both functions recreate the
-  dumpit program. The dumpit program translates a file into hex formate and 
+  dumpit program. The dumpit program translates a file into hex format and 
   prints it out in a formatted manner.
 ******************************************************************************/
 #include <stdio.h>  /* printf, fopen, fclose, fread, sprintf */
@@ -23,29 +23,6 @@ Brief Description:
 
 /* The max range of printable number */
 #define MAX_PRINT_ASCII 127
-
-/* Example: (This example has Unix end-of-line character: 0x0A)
- *
- *  If inbuf contains the first 16 characters from the poem.txt file and outbuf
- *  is an empty array large enough to hold the formatted string, this is how 
- *  you would call the format function:
- *   
- *     format(inbuf, outbuf, 16, 0);
- *  
- *  and this is what outbuf would contain when it returned:
- *  
- * 000000 52 6F 73 65 73 20 61 72  65 20 72 65 64 2E 0A 56   Roses are red..V
- *
- *
- *  The second 16 bytes would be formatted like this:
- *
- *     format(inbuf, outbuf, 16, 16);
- *
- *  and outbuf would look like this:
- *
- * 000010 69 6F 6C 65 74 73 20 61  72 65 20 62 6C 75 65 2E   iolets are blue.
- *
- */
  
 /*******************************************************************************
    Function: format
@@ -75,8 +52,8 @@ void format(const char* inbuf, char *outbuf, int count, int offset)
   for (i = 0; i < count; i++)
   { 
     char buffer [MAXLEN] = {0};
-    /* Format each byte as a hex number, use AND to get last two digits. */
-    sprintf(buffer, "%02X ", inbuf[i] & 0xff);
+    /* Format each byte as a hex number, after converting into unsigned. */
+    sprintf(buffer, "%02X ", (unsigned char)inbuf[i]);
     
     /* Add the hex number to the end of buffer using strcat        */  
     strcat(outbuf, buffer);
@@ -107,7 +84,7 @@ void format(const char* inbuf, char *outbuf, int count, int offset)
   /* Using another loop, append the ASCII representation of the characters */  
   for( i = 0 ; i < count; i++)
   {
-    char buffer[2] = {0};  /* Buffer string, used to hold char to output.*/
+    char buffer[2] = {0};  /* Buffer string, one for char and one for 0. */
     
     /* If the character is within the printable character ranges. */
     if( MIN_PRINT_ASCII < inbuf[i] && inbuf[i] < MAX_PRINT_ASCII)
@@ -140,10 +117,10 @@ Description: Given a filename, read in the bytes and print their hexadecimal
 void dump(const char *filename)
 {
   /* Variable declarations */
-  FILE *file = NULL;           /* Pointer to file. */
-  char buffer [MAXLEN] = {0};  /* Arr to hold the file input. */
-  int size_result;             /* Int to determine size of bytes read. */
-  int offset = 0;              /* */
+  FILE *file = NULL;           /* Pointer to file.                         */
+  char buffer [MAXLEN] = {0};  /* Arr to hold the file input.              */
+  int size_result;             /* Int to determine size of bytes read.     */
+  int offset = 0;              /* The offset variable for format function. */
 
   /* Open the file for read/binary, "rb"  (Text mode will not work) */
   file = fopen(filename, "rb");
@@ -197,7 +174,6 @@ void dump(const char *filename)
     /* Print formatted string using printf or puts  */
     printf("%s\n", out_buffer);
   }
-  
   /* Close the file */
   fclose(file);
 }
